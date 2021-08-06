@@ -1,9 +1,14 @@
 import pygame
 import random
 import sys
+import resource_path
+import os
+
+
 pygame.init()
 pygame.display.set_caption('Snake Game')
 display = pygame.display.set_mode((400, 400), 0)
+path = os.path.normcase(resource_path.path())
 
 # màu
 blue = (0, 0, 255)
@@ -17,26 +22,26 @@ green = (0, 255, 0)
 dark_green = (0, 85, 0)
 
 # import image
-head_up = pygame.transform.scale(pygame.image.load('images/head_up.png'), (20, 20))
-head_down = pygame.transform.scale(pygame.image.load('images/head_down.png'), (20, 20))
-head_left = pygame.transform.scale(pygame.image.load('images/head_left.png'), (20, 20))
-head_right = pygame.transform.scale(pygame.image.load('images/head_right.png'), (20, 20))
-tail_up = pygame.transform.scale(pygame.image.load('images/tail_up.png'), (20, 20))
-tail_down = pygame.transform.scale(pygame.image.load('images/tail_down.png'), (20, 20))
-tail_left = pygame.transform.scale(pygame.image.load('images/tail_left.png'), (20, 20))
-tail_right = pygame.transform.scale(pygame.image.load('images/tail_right.png'), (20, 20))
-left_up = pygame.transform.scale(pygame.image.load('images/body_left_up.png'), (20, 20))
-left_down = pygame.transform.scale(pygame.image.load('images/body_left_down.png'), (20, 20))
-right_up = pygame.transform.scale(pygame.image.load('images/body_right_up.png'), (20, 20))
-right_down = pygame.transform.scale(pygame.image.load('images/body_right_down.png'), (20, 20))
+head_up = pygame.transform.scale(pygame.image.load(path + '\\images\\head_up.png'), (20, 20))
+head_down = pygame.transform.scale(pygame.image.load(path + '\\images\\head_down.png'), (20, 20))
+head_left = pygame.transform.scale(pygame.image.load(path + '\\images\\head_left.png'), (20, 20))
+head_right = pygame.transform.scale(pygame.image.load(path + '\\images\\head_right.png'), (20, 20))
+tail_up = pygame.transform.scale(pygame.image.load(path + '\\images\\tail_up.png'), (20, 20))
+tail_down = pygame.transform.scale(pygame.image.load(path + '\\images\\tail_down.png'), (20, 20))
+tail_left = pygame.transform.scale(pygame.image.load(path + '\\images\\tail_left.png'), (20, 20))
+tail_right = pygame.transform.scale(pygame.image.load(path + '\\images\\tail_right.png'), (20, 20))
+left_up = pygame.transform.scale(pygame.image.load(path + '\\images\\body_left_up.png'), (20, 20))
+left_down = pygame.transform.scale(pygame.image.load(path + '\\images\\body_left_down.png'), (20, 20))
+right_up = pygame.transform.scale(pygame.image.load(path + '\\images\\body_right_up.png'), (20, 20))
+right_down = pygame.transform.scale(pygame.image.load(path + '\\images\\body_right_down.png'), (20, 20))
 img_snake = (
 	(head_up, head_down, head_left, head_right),
 	(left_up, left_down, right_up, right_down),
 	(tail_up, tail_down, tail_left, tail_right)
 )
-img_color = pygame.transform.scale(pygame.image.load('images/color.png'), (140, 60))
-img_map = pygame.transform.scale(pygame.image.load('images/map.png'), (400, 400))
-img_menu = pygame.transform.scale(pygame.image.load('images/menu.png'), (180, 100))
+img_color = pygame.transform.scale(pygame.image.load(path + '\\images\\color.png'), (140, 60))
+img_map = pygame.transform.scale(pygame.image.load(path + '\\images\\map.png'), (400, 400))
+img_menu = pygame.transform.scale(pygame.image.load(path + '\\images\\menu.png'), (180, 100))
 img_setting = (img_menu, img_color)
 
 
